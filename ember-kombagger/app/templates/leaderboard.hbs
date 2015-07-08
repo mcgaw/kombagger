@@ -2,9 +2,11 @@
 <row>
 <div class="large-4 columns">&nbsp;</div>
 <div class="large-4 columns">
-<ul>
+<ul class="leaderboard-list">
   {{#each leaderboard as |rider|}}
-    <li><img src="{{rider.koms.0.athlete_profile}}" /> {{rider.name}} {{rider.koms.length}} KOMs</li>
+   <li>
+	<img class="avatar" src="{{rider.athlete_profile}}" />
+   {{rider.name}} {{rider.koms.length}} KOMs</li>
   {{/each}}
 </ul>
 </div>

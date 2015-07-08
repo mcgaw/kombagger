@@ -8,6 +8,7 @@ export default Ember.Route.extend({
 
 		req.done(function (msg) {
 			Ember.set(controller, 'leaderboard', msg);
+			controller.fixAvatarPics();
 		});
 
 		req.fail(function (resp, status, err) {

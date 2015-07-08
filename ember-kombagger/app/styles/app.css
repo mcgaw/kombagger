@@ -16,3 +16,13 @@
 	top: 0px;
 	z-index: -99;
 }
+
+.leaderboard-list {
+	list-style: none;
+}
+
+.avatar {
+	-webkit-clip-path: circle(50px at center);
+  	-moz-clip-path: circle(50px, 50px, 50px);
+  	clip-path: circle(50px, 50px, 50px);
+}
