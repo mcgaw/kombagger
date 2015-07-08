@@ -1,0 +1,12 @@
+<div class="leaderboard-background" />
+<row>
+<div class="large-4 columns">&nbsp;</div>
+<div class="large-4 columns">
+<ul>
+  {{#each leaderboard as |rider|}}
+    <li><img src="{{rider.koms.0.athlete_profile}}" /> {{rider.name}} {{rider.koms.length}} KOMs</li>
+  {{/each}}
+</ul>
+</div>
+<div class="large-4 columns">&nbsp;</div>
+</row>

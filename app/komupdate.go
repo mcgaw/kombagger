@@ -28,6 +28,6 @@ func pollStrava() {
 		AddKOM(leaderboard[0])
 	}
 
-	time.Sleep(time.Minute * 10)
+	time.Sleep(time.Minute * 1000)
 
 }

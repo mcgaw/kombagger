@@ -75,7 +75,7 @@ type Effort struct {
 	AthleteId      int    `json:"athlete_id"`
 	ElapsedTime    int    `json:"elapsed_time"`
 	MovingTime     int    `json:"moving_time"`
-	Rank           int
+	Rank           int    `json:"rank"`
 	AthleteProfile string `json:"athlete_profile"`
 }
 

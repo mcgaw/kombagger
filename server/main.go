@@ -12,5 +12,5 @@ func main() {
 
 	r.GET("/leaderboard", c.GetLeaderboard)
 
-	http.ListenAndServe("localhost:8080", r)
+	http.ListenAndServe("localhost:9090", r)
 }

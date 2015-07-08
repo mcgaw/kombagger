@@ -15,9 +15,9 @@ type Area struct {
 }
 
 type Rider struct {
-	Id   int
-	Name string
-	KOMs []Effort
+	Id   int      `json:"id"`
+	Name string   `json:"name"`
+	KOMs []Effort `json:"koms"`
 }
 
 var DBFileName string = "kombagger.db"

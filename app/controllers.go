@@ -17,7 +17,10 @@ func (controller *LeaderboardController) GetLeaderboard(w http.ResponseWriter, r
 		w.Header().Set("Status", "500")
 		return
 	}
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:8080")
 	fmt.Fprint(w, string(json))
+
 }
 
 func NewLeaderboardController() *LeaderboardController {
