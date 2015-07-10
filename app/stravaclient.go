@@ -2,6 +2,7 @@ package app
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -14,6 +15,7 @@ var logger = log.New(os.Stdout, "kombagger ", 0)
 const baseAPI = "https://www.strava.com/api/v3/"
 const segmentExploreAPI = "segments/explore"
 const segmentLeaderboardAPI = "segments/%v/leaderboard"
+const retrieveActivityAPI = "activities/%v"
 
 const accessToken = "a22c2bb5f6270300e5fd562c702084126301e286"
 const authParam = "access_token=" + accessToken
@@ -46,6 +48,17 @@ type Point struct {
 type BoundingBox struct {
 	topRight   Point
 	bottomLeft Point
+}
+
+type Activity struct {
+	Id             int             `json:"id"`
+	SegmentEfforts []SegmentEffort `json:"segment_efforts"`
+}
+
+type SegmentEffort struct {
+	Id      int     `json:"id"`
+	Name    string  `json:"name"`
+	Segment Segment `json:"segment"`
 }
 
 // deserialization helper
@@ -94,10 +107,9 @@ func GetSegments(boundingBox BoundingBox) []Segment {
 	boundsParam := "bounds=" + fmt.Sprintf("%v", boundingBox.bottomLeft.lat) + "," + fmt.Sprintf("%v", boundingBox.bottomLeft.long) + "," + fmt.Sprintf("%v", boundingBox.topRight.lat) + "," + fmt.Sprintf("%v", boundingBox.topRight.long)
 
 	url := baseAPI + segmentExploreAPI + "?" + boundsParam + "&" + authParam
-	logger.Println(url)
-	resp := httpClient.Get(url)
 
-	logger.Println(string(resp))
+	logger.Println("calling Strava API: " + url)
+	resp := httpClient.Get(url)
 
 	segments := new(segments)
 	err := json.Unmarshal(resp, segments)
@@ -114,8 +126,6 @@ func GetSegmentLeaderboard(segmentId int) []Effort {
 
 	url := fmt.Sprintf(baseAPI+segmentLeaderboardAPI+"?"+authParam, segmentId)
 
-	logger.Println(url)
-
 	resp := httpClient.Get(url)
 
 	logger.Println(string(resp))
@@ -128,4 +138,23 @@ func GetSegmentLeaderboard(segmentId int) []Effort {
 	}
 
 	return efforts.Efforts
+}
+
+func GetActivity(activityId int) (Activity, error) {
+
+	url := fmt.Sprintf(baseAPI+retrieveActivityAPI+"?"+authParam, activityId)
+
+	logger.Println("calling Strava API: " + url)
+	resp := httpClient.Get(url)
+
+	activity := Activity{}
+	err := json.Unmarshal(resp, &activity)
+
+	if err != nil {
+		logger.Printf("%v", err)
+		return Activity{}, errors.New("error calling Strava API")
+	} else {
+		return activity, nil
+	}
+
 }

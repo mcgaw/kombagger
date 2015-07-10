@@ -1,14 +1,19 @@
 <div class="leaderboard-background" />
 <row>
-<div class="large-4 columns">&nbsp;</div>
-<div class="large-4 columns">
+<div class="large-3 columns">&nbsp;</div>
+<div class="large-6 columns">
 <ul class="leaderboard-list">
   {{#each leaderboard as |rider|}}
    <li>
+	<div class="leaderboard-entry">
 	<img class="avatar" src="{{rider.athlete_profile}}" />
-   {{rider.name}} {{rider.koms.length}} KOMs</li>
+	<div class="rider-name">{{rider.name}}</div>
+	{{rider.koms.length}}
+ 
+   </div>
+   </li>
   {{/each}}
 </ul>
 </div>
-<div class="large-4 columns">&nbsp;</div>
+<div class="large-3 columns">&nbsp;</div>
 </row>
