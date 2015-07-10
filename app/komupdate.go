@@ -5,8 +5,26 @@ import (
 	"time"
 )
 
-// round the loch,
-var referenceActivities = []int{341750344}
+var referenceActivities = []int{
+
+	// round the loch anti-clockwise
+	341750344,
+	// rond the lock clockwise
+	// TODO
+	// brackletter spean reverse
+	339664883,
+	// regular spean loop
+	326016101,
+	// dam ride with brakcletter then glen nevis
+	310099490,
+	// lochailort
+	300447396,
+	// liddesdale regular
+	310099490,
+	// liddesdale reverse
+	// TODO
+
+}
 
 var fortWilliamBoundingBox = BoundingBox{Point{56.8295301, -5.0756684}, Point{56.80433499999999, -5.1304722}}
 

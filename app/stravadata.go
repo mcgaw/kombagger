@@ -5,6 +5,7 @@ import (
 	"encoding/gob"
 	"fmt"
 	"github.com/boltdb/bolt"
+	"sort"
 	"strconv"
 )
 
@@ -90,6 +91,9 @@ func (boltStravaData BoltStravaData) GetRiderLeaderboard() []Rider {
 
 		return nil
 	})
+
+	sort.Sort(orderedRiderLeaderboard(Riders))
+
 	return Riders
 
 }
@@ -105,6 +109,12 @@ func (boltStravaData BoltStravaData) Clean() {
 		return nil
 	})
 }
+
+type orderedRiderLeaderboard []Rider
+
+func (a orderedRiderLeaderboard) Len() int           { return len(a) }
+func (a orderedRiderLeaderboard) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a orderedRiderLeaderboard) Less(i, j int) bool { return len(a[j].KOMs) < len(a[i].KOMs) }
 
 func deserialize(riderBytes []byte) Rider {
 	rider_ := Rider{}

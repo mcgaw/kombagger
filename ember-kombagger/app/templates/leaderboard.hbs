@@ -1,19 +1,19 @@
 <div class="leaderboard-background" />
-<row>
-<div class="large-3 columns">&nbsp;</div>
-<div class="large-6 columns">
-<ul class="leaderboard-list">
-  {{#each leaderboard as |rider|}}
-   <li>
-	<div class="leaderboard-entry">
-	<img class="avatar" src="{{rider.athlete_profile}}" />
-	<div class="rider-name">{{rider.name}}</div>
-	{{rider.koms.length}}
- 
-   </div>
-   </li>
-  {{/each}}
-</ul>
+<div class="row">
+<div class="large-2 medium-2 small-0 columns">&nbsp;</div>
+<div class="leaderboard-list large-8 medium-8 small-12 columns">
+	  {{#each leaderboard as |rider|}}
+	   <div class="leaderboard-entry row">
+		<div class="avatar-holder large-3 small-4 columns">
+		<img class="avatar" src="{{rider.athlete_profile}}" />
+		</div>
+		<div class="rider-name large-6 small-5 columns">{{rider.name}}</div>
+		<div class="rider-kom-count large-3 small-3 columns">
+		{{rider.koms.length}}
+		</div>
+	   </div>
+	  {{/each}}
 </div>
-<div class="large-3 columns">&nbsp;</div>
-</row>
+
+<div class="large-2 medium-2 small-0 columns">&nbsp;</div>
+</div>

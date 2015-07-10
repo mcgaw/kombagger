@@ -1,7 +1,7 @@
 .logo {
-	margin: 10px;
+	margin: 10px 10px 20px 10px;
 	width: 100%;
-	position: fixed;
+	text-align: center;
 }
 
 .leaderboard-background {
@@ -18,37 +18,38 @@
 }
 
 .leaderboard-list {
-	list-style: none;
+	background-color: rgba(0,0,0,0.60);
+
 }
 
 .leaderboard-entry {
-	height: 124px;
-	line-height: 124px;
 	font-family: Helevetica; arial;
-	font-size: xx-large;
+	font-size: large;
+	color: white;
 }
 
-
-.rider-name {
-	display: inline-block;
-	overflow: hidden;
-	white-space: nowrap;
-	line-height: 100%;
-	width: 60%;
-	text-align: center;
-}
-
-.rider-kom-count {
-	display: inline-block;
-	overflow: hidden;
-	line-height: 100%;
-	width: 70%;
-	margin-left: 124px;
-	white-space: nowrap;
-}
 
 .avatar {
 	-webkit-clip-path: circle(35px at center);
   	-moz-clip-path: circle(35px, 35px, 35px);
   	clip-path: circle(35px, 35px, 35px);
 }
+
+.avatar-holder {
+	line-height: 124px;
+}
+
+/* handle unexpectedly long names */
+.rider-name {
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+	line-height: 124px;
+	text-align: center;
+}
+
+
+.rider-kom-count {
+	line-height: 124px;
+}
+
