@@ -4,7 +4,7 @@ export default Ember.Route.extend({
 	setupController: function setupController(controller, model) {
 
 		/* jshint unused:false */
-		var req = Ember.$.ajax('http://localhost:9090/leaderboard');
+		var req = Ember.$.ajax('http://localhost:9090/api/leaderboard');
 
 		req.done(function (msg) {
 			Ember.set(controller, 'leaderboard', msg);

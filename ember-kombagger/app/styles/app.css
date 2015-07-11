@@ -1,7 +1,17 @@
+body {
+	font-family: Helevetica; arial;
+	font-size: large;
+	color: white;
+}
+
 .logo {
-	margin: 10px 10px 20px 10px;
-	width: 100%;
 	text-align: center;
+}
+
+.logo-text {
+	margin: 10px 0px 10px 0px;
+	padding: 5px;
+	background-color: rgba(0,0,0,0.60);
 }
 
 .leaderboard-background {
@@ -23,9 +33,7 @@
 }
 
 .leaderboard-entry {
-	font-family: Helevetica; arial;
 	font-size: large;
-	color: white;
 }
 
 
