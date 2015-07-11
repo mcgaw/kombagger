@@ -1,0 +1,16 @@
+{
+	"ImportPath": "github.com/mcgaw/kombagger/server",
+	"GoVersion": "go1.2.1",
+	"Deps": [
+		{
+			"ImportPath": "github.com/boltdb/bolt",
+			"Comment": "v1.0-111-g04a3e85",
+			"Rev": "04a3e85793043e76d41164037d0d7f9d53eecae3"
+		},
+		{
+			"ImportPath": "github.com/julienschmidt/httprouter",
+			"Comment": "v1.1-1-g70708e4",
+			"Rev": "70708e46004c7bcb09b70e685a8b74a690135387"
+		}
+	]
+}
